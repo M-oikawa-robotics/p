@@ -1,0 +1,297 @@
+<?xml version="1.0" ?>
+<robot name="motoman">
+
+  <material name="red">
+    <color rgba="0.8 0 0 1"/>
+  </material>
+
+  <material name="orange">
+    <color rgba="1.0 0.3 0 1"/>
+  </material>
+
+  <material name="yellow">
+    <color rgba="0.8 0.8 0 1"/>
+  </material>
+
+  <material name="green">
+    <color rgba="0 0.8 0 1"/>
+  </material>
+
+  <material name="sky">
+    <color rgba="0 0.8 0.8 1"/>
+  </material>
+
+  <material name="blue">
+    <color rgba="0 0 0.8 1"/>
+  </material>
+
+  <material name="magenta">
+    <color rgba="0.8 0 0.8 1"/>
+  </material>
+
+  <material name="white">
+    <color rgba="1 1 1 1"/>
+  </material>
+
+  <material name="gray">
+    <color rgba="0.9 0.9 0.9 1"/>
+  </material>
+
+  <material name="dark">
+    <color rgba="0.3 0.3 0.3 1"/>
+  </material>
+
+
+
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <cylinder length="0.13" radius="0.14"/>
+      </geometry>
+      <origin xyz="0 0 0.065"/>
+      <material name="gray"/>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder length="0.13" radius="0.14"/>
+      </geometry>
+      <origin xyz="0 0 0.065"/>
+    </collision>
+    <inertial>
+      <mass value="19"/>
+      <inertia ixx="0.112" ixy="0.0" ixz="0.0" iyy="0.112" iyz="0.0" izz="0.186"/>
+    </inertial>
+  </link>
+
+  <link name="link_s">
+    <visual>
+      <geometry>
+        <cylinder length="0.16" radius="0.08"/>
+      </geometry>
+      <origin xyz="0 0 0.08"/>
+      <material name="gray"/>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder length="0.16" radius="0.08"/>
+      </geometry>
+      <origin xyz="0 0 0.08"/>
+    </collision>
+    <inertial>
+      <mass value="2"/>
+      <inertia ixx="0.00747" ixy="0.0" ixz="0.0" iyy="0.00747" iyz="0.0" izz="0.0064"/>
+    </inertial>
+  </link>
+
+  <link name="link_l">
+    <visual>
+      <geometry>
+        <cylinder length="0.27" radius="0.08"/>
+      </geometry>
+      <origin xyz="0 0 0.135"/>
+      <material name="gray"/>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder length="0.27" radius="0.08"/>
+      </geometry>
+      <origin xyz="0 0 0.135"/>
+    </collision>
+    <inertial>
+      <mass value="2"/>
+      <inertia ixx="0.00154" ixy="0.0" ixz="0.0" iyy="0.00154" iyz="0.0" izz="0.0064"/>
+    </inertial>
+  </link>
+
+  <link name="link_u">
+    <visual>
+      <geometry>
+        <cylinder length="0.04" radius="0.06"/>
+      </geometry>
+      <origin xyz="-0.03 0 0.02"/>
+      <material name="gray"/>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder length="0.04" radius="0.06"/>
+      </geometry>
+      <origin xyz="-0.03 0 0.02"/>
+    </collision>
+    <inertial>
+      <mass value="2"/>
+      <inertia ixx="0.00207" ixy="0.0" ixz="0.0" iyy="0.00207" iyz="0.0" izz="0.0036"/>
+    </inertial>
+  </link>
+
+  <link name="link_r">
+    <visual>
+      <geometry>
+        <cylinder length="0.23" radius="0.06"/>
+      </geometry>
+      <origin xyz="0 0 0.115"/>
+      <material name="gray"/>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder length="0.23" radius="0.06"/>
+      </geometry>
+      <origin xyz="0 0 0.115"/>
+    </collision>
+    <inertial>
+      <mass value="1"/>
+      <inertia ixx="0.00531" ixy="0.0" ixz="0.0" iyy="0.00531" iyz="0.0" izz="0.0018"/>
+    </inertial>
+  </link>
+
+  <link name="link_b">
+    <visual>
+      <geometry>
+        <cylinder length="0.01" radius="0.04"/>
+      </geometry>
+      <origin xyz="0 0 0.005"/>
+      <material name="gray"/>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder length="0.01" radius="0.04"/>
+      </geometry>
+      <origin xyz="0 0 0.005"/>
+    </collision>
+    <inertial>
+      <mass value="1"/>
+      <inertia ixx="0.000408" ixy="0.0" ixz="0.0" iyy="0.000408" iyz="0.0" izz="0.0008"/>
+    </inertial>
+  </link>
+
+  <link name="link_t">
+    <visual>
+      <geometry>
+        <cylinder length="0.08" radius="0.04"/>
+      </geometry>
+      <origin xyz="0 0 0.04"/>
+      <material name="gray"/>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder length="0.08" radius="0.04"/>
+      </geometry>
+      <origin xyz="0 0 0.04"/>
+    </collision>
+    <inertial>
+      <mass value="0.5"/>
+      <inertia ixx="0.000467" ixy="0.0" ixz="0.0" iyy="0.000467" iyz="0.0" izz="0.0004"/>
+    </inertial>
+  </link>
+
+  <joint name="joint_s" type="continuous">
+    <parent link="base_link"/>
+    <child link="link_s"/>
+    <origin xyz="0 0 0.13"/>
+    <axis xyz="0 0 1" />
+    <dynamics damping="10.0" friction="0.0"/>
+  </joint>
+
+  <joint name="joint_l" type="continuous">
+    <parent link="link_s"/>
+    <child link="link_l"/>
+    <origin xyz="0 0 0.16"/>
+    <axis xyz="0 1 0" />
+    <dynamics damping="10.0" friction="0.0"/>
+  </joint>
+
+  <joint name="joint_u" type="continuous">
+    <parent link="link_l"/>
+    <child link="link_u"/>
+    <origin xyz="0 0 0.27"/>
+    <axis xyz="0 1 0" />
+    <dynamics damping="10.0" friction="0.0"/>
+  </joint>
+
+  <joint name="joint_r" type="continuous">
+    <parent link="link_u"/>
+    <child link="link_r"/>
+    <origin xyz="-0.03 0 0.04"/>
+    <axis xyz="0 0 1" />
+    <dynamics damping="10.0" friction="0.0"/>
+  </joint>
+
+  <joint name="joint_b" type="continuous">
+    <parent link="link_r"/>
+    <child link="link_b"/>
+    <origin xyz="0 0 0.23"/>
+    <axis xyz="0 1 0" />
+    <dynamics damping="10.0" friction="0.0"/>
+  </joint>
+
+  <joint name="joint_t" type="continuous">
+    <parent link="link_b"/>
+    <child link="link_t"/>
+    <origin xyz="0 0 0.01"/>
+    <axis xyz="0 0 1" />
+    <dynamics damping="10.0" friction="0.0"/>
+  </joint>
+
+
+<!-- Tool -->
+  <material name="FT_sensor">
+    <color rgba="1 0.2 0 1"/>
+  </material>
+
+    <material name="peg_color">
+    <color rgba="0 0 0 1"/>
+  </material>
+
+  <link name="Force_sensor">
+    <visual>
+      <geometry>
+        <cylinder length="0.03" radius="0.04"/>
+      </geometry>
+      <origin xyz="0 0 0.015"/>
+      <material name="FT_sensor"/>
+
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder length="0.03" radius="0.04"/>
+      </geometry>
+      <origin xyz="0 0 0.015"/>
+    </collision>
+    <inertial>
+      <mass value="0.01"/>
+      <inertia ixx="0.00000840" ixy="0.0" ixz="0.0" iyy="0.00000840" iyz="0.0" izz="0.000000125"/>
+    </inertial>
+  </link>
+
+  <link name="peg">
+    <visual>
+      <geometry>
+     <cylinder length="0.1" radius="0.00495"/>
+      </geometry>
+      <origin xyz="0 0 0.004975"/>
+      <material name="peg_color"/>
+    </visual>
+    <collision>
+      <geometry>
+         <cylinder length="0.1" radius="0.00495"/>
+      </geometry>
+      <origin xyz="0 0 0.003975"/>
+    </collision>
+    <inertial>
+      <mass value="0.01"/>
+      <inertia ixx="0.000227" ixy="0.0" ixz="0.0" iyy="0.000227" iyz="0.0" izz="0.000417"/>
+    </inertial>
+  </link>
+
+  <joint name="grip" type="fixed">
+    <parent link="link_t"/>
+    <child link="Force_sensor"/>
+    <origin xyz="0 0 0.08"/>
+  </joint>
+
+  <joint name="joint_spatula" type="fixed">
+    <parent link="Force_sensor"/>
+    <child link="peg"/>
+    <origin xyz="0 0 0.03"/>
+  </joint>
+
+</robot>

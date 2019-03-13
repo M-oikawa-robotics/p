@@ -1,0 +1,28 @@
+<?xml version="1.0" ?>
+<robot name="pancake">
+
+  <material name="back_color">
+    <color rgba="0 1 0 1"/>
+  </material>
+
+  <link name="back">
+    <visual>
+      <geometry>
+        <cylinder length="0.2" radius="0.1"/>
+      </geometry>
+      <material name="back_color"/>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder length="0.2" radius="0.1"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="1000.01"/>
+      <inertia ixx="0.00000633" ixy="0.0" ixz="0.0" iyy="0.00000633" iyz="0.0" izz="0.0000125"/>
+    </inertial>
+  </link>
+
+ 
+
+</robot>
